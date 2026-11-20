@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>2xo_rps.zip — GIF ARCHIVE</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./">2xo_rps.zip</a>
+    <span class="header-tag">GIF ARCHIVE</span>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <p class="eyebrow">PERSONAL IMAGE ARCHIVE</p>
+      <h1>ARCHIVE<span>.</span></h1>
+      <p class="subcopy">움짤과 이미지를 모아두는 공간</p>
+    </section>
+
+    <section class="toolbar" aria-label="아카이브 도구">
+      <div>
+        <h2>ALL FILES <span id="file-count" class="count">0</span></h2>
+        <p class="muted">공개된 이미지 자료</p>
+      </div>
+      <label class="sort-control">정렬
+        <select id="sort-select">
+          <option value="newest">최신순</option>
+          <option value="oldest">오래된순</option>
+          <option value="name">이름순</option>
+        </select>
+      </label>
+    </section>
+
+    <p id="status" class="status" role="status">아카이브를 불러오는 중...</p>
+    <section id="gallery" class="gallery" aria-label="이미지 목록"></section>
+
+    <section class="admin-panel">
+      <div class="admin-heading">
+        <div>
+          <p class="eyebrow">ARCHIVE MANAGEMENT</p>
+          <h2>ADMIN</h2>
+        </div>
+        <span id="auth-state" class="auth-state">로그아웃 상태</span>
+      </div>
+
+      <div id="login-area" class="login-area">
+        <p class="muted">관리자 계정으로 로그인하면 파일을 업로드하거나 삭제할 수 있어요.</p>
+        <form id="login-form" class="login-form">
+          <label>이메일<input id="email" type="email" autocomplete="username" required placeholder="관리자 이메일"></label>
+          <label>비밀번호<input id="password" type="password" autocomplete="current-password" required placeholder="비밀번호"></label>
+          <button type="submit" class="button button-dark">관리자 로그인</button>
+        </form>
+      </div>
+
+      <div id="admin-area" class="admin-area hidden">
+        <p class="muted">로그인됨. 업로드할 이미지 파일을 선택해 줘. (파일당 최대 25MB)</p>
+        <form id="upload-form" class="upload-form">
+          <label class="file-picker">이미지 파일 선택
+            <input id="file-input" type="file" accept="image/gif,image/jpeg,image/png,image/webp" multiple required>
+          </label>
+          <button type="submit" class="button button-dark">선택한 파일 업로드</button>
+        </form>
+        <button id="logout-button" type="button" class="button button-light">로그아웃</button>
+      </div>
+      <p id="admin-message" class="admin-message" role="status"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">2xo_rps.zip <span>·</span> GIF ARCHIVE</footer>
+</body>
+</html>
